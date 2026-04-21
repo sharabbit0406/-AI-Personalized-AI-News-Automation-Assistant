@@ -2,16 +2,16 @@ name: Daily News Trigger
 
 on:
   schedule:
-  # 這裡使用的是 UTC 時間。UTC 00:00 剛好是台灣時間早上 08:00
+    # 這裡使用的是 UTC 時間。UTC 00:00 剛好是台灣時間早上 08:00
     - cron: '0 0 * * *'
-   # workflow_dispatch 允許我們在 GitHub 網頁上手動點擊按鈕測試
+  # workflow_dispatch 允許我們在 GitHub 網頁上手動點擊按鈕測試
   workflow_dispatch: 
 
 jobs:
   ping-server:
     runs-on: ubuntu-latest
     steps:
-      -name: Tringger Render API
+      - name: Trigger Render API
         # 請把下方的網址換成您真實的 Render 專屬網址
         run: curl https://ai-personalized-ai-news-automation.onrender.com
    
