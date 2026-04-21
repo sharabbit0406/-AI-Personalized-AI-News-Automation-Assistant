@@ -43,6 +43,25 @@ import threading
 
 from database import init_db
 
+#---0421新增
+# 在 line_bot_app.py 加入以下內容
+from main_daily_job import run_daily_job # 確保你有將主程式邏輯封裝成函式
+
+@app.route("/trigger-job", methods=['GET', 'POST'])
+def trigger_job():
+    # 簡單的安全性檢查（選配）：可以從環境變數讀取一個 KEY
+    # if request.args.get('key') != "YOUR_SECRET_KEY":
+    #     return "Forbidden", 403
+    
+    try:
+        print("開始執行定時抓取任務...")
+        run_daily_job()  # 呼叫你原本在 main_daily_job.py 寫好的邏輯
+        return "Job Completed Successfully!", 200
+    except Exception as e:
+        print(f"執行失敗: {e}")
+        return f"Error: {str(e)}", 500
+     #0421新增---
+
 # 在 Flask app 啟動前先跑一次，確保表格一定存在
 init_db()
 
