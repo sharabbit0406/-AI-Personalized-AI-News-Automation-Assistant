@@ -62,7 +62,7 @@ if __name__=="__main__":
     for i,news in enumerate(latest_news,1): #邊數數、邊拿東西。第一個參數 latest_news：這是你裝滿新聞的箱子（清單）。二個參數 1：這是告訴電腦「從 1 開始數」。如果你不寫，預設會從 0 開始。
         #i (Index)：這就是序號。第一次迴圈它是 1，第二次是 2，依此類推。
         #news：這是一篇新聞的完整內容（也就是之前拿到的標題、網址等）。
-        print(f'[新聞{i}]{news['title']}')
-        print(f'連結:{news['url']}')
-        #print(f'原始摘要長度:{len(news['summary'])}')
+        print(f"[新聞{i}]{news['title']}")
+        print(f"連結:{news['url']}")
+        #print(f"原始摘要長度:{len(news['summary'])}")
         print("-"*40)
