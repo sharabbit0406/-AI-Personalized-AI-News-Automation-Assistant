@@ -37,6 +37,10 @@ from llm_processor import generate_detailed_reply
 ## 載入 config.py 裡的設定
 from config import LINE_CHANNEL_ACCESS_TOKEN,MY_LINE_USER_ID ,LINE_CHANNEL_SECRET
 
+#GitHub Actions 搭配 API 喚醒#在 Flask (Render 伺服器) 新增一個「觸發用 API」
+from main_daily_job import run_pipeline
+import threading
+
 app=Flask(__name__)
 
 
@@ -62,6 +66,15 @@ def callback():
         print("簽章驗證失敗，請檢查Channel Secret")
         abort(400) #用來立即中斷請求並回傳 HTTP 400 Bad Request（錯誤的請求） 給用戶端的函式。
     return'OK'
+
+#接收定時排程觸發的 API 路由
+@app.route("/trigger-daily-news",methods=['Get'])
+def trigger_news():
+    print("收到定時排成觸發請求，準備開始每日新聞管線..")
+    # 使用 threading 在背景執行，避免抓新聞太久導致 Render API 逾時 (Timeout)
+    threading.Thread(target=run_pipeline).start()
+
+    return"新聞處理管線已成功在背景觸發啟動!",200
 
 #處理使用者的文字訊息(被動回覆)
 #@handler.add(MessageEvent,message=TextMessage) #舊
