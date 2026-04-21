@@ -17,7 +17,7 @@ def run_pipeline():
 
     #動作1:抓標題
     print("▶️動作1.正在抓取RSS新聞標題...")
-    news_list=get_latest_news(max_per_feeds=5)
+    news_list=get_latest_news(max_per_feeds=3)
     print(f"▶️共抓取到{len(news_list)}篇新聞")
     print("-"*50)
 
