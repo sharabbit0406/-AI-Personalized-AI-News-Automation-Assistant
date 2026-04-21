@@ -1,0 +1,6 @@
+feedparser
+requests 
+beautifulsoup4
+line-bot-sdk
+flask
+google-genai

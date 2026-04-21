@@ -205,3 +205,17 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# ==== 自訂忽略檔案 ====
+
+# 忽略機密設定檔 (絕對不能上傳 API Key)
+config.py
+
+# 忽略虛擬環境資料夾 (檔案太大且不必要)
+vscode.venv/
+venv/
+.env
+
+# 忽略 SQLite 本機資料庫 (避免把測試的新聞資料傳上去)
+*.db
