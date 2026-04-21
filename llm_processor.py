@@ -12,7 +12,16 @@ import json
 import time #引入time模組 來暫停時間，避免頻繁API要求而遭封鎖
 from google import genai
 #import google.generativeai as genai #舊版
-from config import GEMINI_API_KEY,SYSTEM_PERSONA,GEMINI_MODLE
+#from config import GEMINI_API_KEY,SYSTEM_PERSONA,GEMINI_MODLE
+from config import SYSTEM_PERSONA
+
+import os
+import google.generativeai as genai
+
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GEMINI_MODLE= os.getenv('GEMINI_MODLE')
+
+
 
 #初始化客戶端(設定Gemini API KEY)
 
