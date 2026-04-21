@@ -41,6 +41,12 @@ from config import LINE_CHANNEL_ACCESS_TOKEN,MY_LINE_USER_ID ,LINE_CHANNEL_SECRE
 
 import threading
 
+from database import init_db
+
+# 在 Flask app 啟動前先跑一次，確保表格一定存在
+init_db()
+
+
 app=Flask(__name__)
 
 
