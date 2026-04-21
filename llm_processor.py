@@ -16,7 +16,7 @@ from google import genai
 from config import SYSTEM_PERSONA
 
 import os
-import google.generativeai as genai
+
 
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 GEMINI_MODLE= os.getenv('GEMINI_MODLE')
