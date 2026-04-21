@@ -14,9 +14,10 @@ jobs:
       - name: Trigger Render API
         run: curl https://ai-personalized-ai-news-automation.onrender.com
 
-  # 2. 執行新聞抓取與推播 (這是你漏掉的部分)
+  # 2. 執行新聞抓取與推播 
   run-daily-job:
     runs-on: ubuntu-latest
+    environment: AI NEWS
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
