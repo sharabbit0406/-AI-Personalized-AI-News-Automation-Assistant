@@ -56,4 +56,4 @@ jobs:
       - name: Trigger Render API
         run: |
           # 換成你 Render 的實際 Webhook 網址
-          curl -X GET "https://ai-personalized-ai-news-automation.onrender.com"
+          curl -X GET "https://ai-personalized-ai-news-automation.onrender.com/trigger-job"
