@@ -38,7 +38,7 @@ from llm_processor import generate_detailed_reply
 from config import LINE_CHANNEL_ACCESS_TOKEN,MY_LINE_USER_ID ,LINE_CHANNEL_SECRET
 
 #GitHub Actions 搭配 API 喚醒#在 Flask (Render 伺服器) 新增一個「觸發用 API」
-from main_daily_job import run_pipeline
+
 import threading
 
 app=Flask(__name__)
@@ -70,6 +70,7 @@ def callback():
 #接收定時排程觸發的 API 路由
 @app.route("/trigger-daily-news",methods=['Get'])
 def trigger_news():
+    from main_daily_job import run_pipeline
     print("收到定時排成觸發請求，準備開始每日新聞管線..")
     # 使用 threading 在背景執行，避免抓新聞太久導致 Render API 逾時 (Timeout)
     threading.Thread(target=run_pipeline).start()
