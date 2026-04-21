@@ -13,11 +13,11 @@ LINE_CHANNEL_SECRET=os.getenv("LINE_CHANNEL_SECRET")
 
 #2.資料來源rss
 RSS_FEEDS=[
-"https://technews.tw/category/it/ai/feed/",
+#"https://technews.tw/category/it/ai/feed/",
 #"https://technews.tw/tn-rss/",
-#"https://huggingface.co/blog/feed.xml",
-#"https://blog.google/technology/ai/rss/",
-"https://venturebeat.com/category/ai/feed/",
+"https://huggingface.co/blog/feed.xml",
+"https://blog.google/technology/ai/rss/",
+#"https://venturebeat.com/category/ai/feed/",
 
 ]
 
