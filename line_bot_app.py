@@ -43,6 +43,11 @@ import threading
 
 from database import init_db
 
+init_db()
+
+
+app=Flask(__name__)
+
 #---0421新增
 # 在 line_bot_app.py 加入以下內容
 
@@ -64,10 +69,7 @@ def trigger_job():
      #0421新增---
 
 # 在 Flask app 啟動前先跑一次，確保表格一定存在
-init_db()
 
-
-app=Flask(__name__)
 
 
 #初始化Line Bot API
